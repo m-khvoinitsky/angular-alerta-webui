@@ -96,7 +96,7 @@ alertaControllers.controller('AlertListController', ['$scope', '$route', '$locat
       var colors = angular.merge(colorDefaults, config.colors);
       var css_lines = [];
       Object.keys(colors.severity).forEach(function (severity) {
-        css_lines.push('.alert-row-'+severity+' {\n' +
+        css_lines.push('.alert-row-severity-'+severity+' {\n' +
           'background-color: '+colors.severity[severity] +';\n' +
           'color: '+(colors.severity[severity] == 'black' ? 'white' : colors.text)+';\n' +
         '}')
