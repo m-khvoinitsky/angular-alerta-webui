@@ -63,6 +63,10 @@ angular.module('config', [])
       }`,
     'default_sort': ['reverseSeverityCode', 'lastReceiveTime'],
     'default_sort_reverse': true,
+    "col_classes": {
+        'environment': 'hidden-xs',
+        'text': 'hidden-xs'
+    },
     'severity'    : {}, // use default severity codes
     'audio'       : {}, // no audio
     'tracking_id' : ""  // Google Analytics tracking ID eg. UA-NNNNNN-N

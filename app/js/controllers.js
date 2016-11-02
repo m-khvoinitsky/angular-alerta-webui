@@ -105,6 +105,24 @@ alertaControllers.controller('AlertListController', ['$scope', '$route', '$locat
       $scope.color_css = css_lines.join('\n');
     }
 
+    $scope.col_classes = angular.merge(
+        {
+          severity: 'hidden-xs',
+          status: 'hidden-xs',
+          time_short: 'hidden-lg',
+          time_long: 'visible-lg',
+          dupl: 'visible-lg',
+          customer: 'hidden-xs',
+          environment: 'hidden-xs',
+          service: 'hidden-xs',
+          resource: '',
+          event: '',
+          value: 'hidden-xs',
+          text: 'hidden-xs'
+        },
+        config.col_classes ? config.col_classes : {}
+    );
+
     $scope.autoRefresh = true;
     $scope.refreshText = 'Auto Update';
 
