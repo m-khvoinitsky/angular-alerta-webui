@@ -100,6 +100,7 @@
     <button type="button" class="btn btn-default"
             ng-click="bulkUnwatchAlert(bulkAlerts, user)"
             ng-disabled="!isAuthenticated();"><i class="glyphicon glyphicon-eye-close"></i> Unwatch</button>
+    <input type="text" class="form-control input ack-text" placeholder="Ack message" ng-model="ack_text" ng-show="ask_ack_text" ng-disabled="status.indexOf('ack') > -1">
     <button type="button" class="btn btn-primary"
             ng-click="bulkAckAlert(bulkAlerts)"
             ng-disabled="status.indexOf('ack') > -1"><i class="glyphicon glyphicon-ok-circle"></i> Ack</button>

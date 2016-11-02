@@ -67,6 +67,7 @@ angular.module('config', [])
         'environment': 'hidden-xs',
         'text': 'hidden-xs'
     },
+    'ask_ack_text': false,
     'severity'    : {}, // use default severity codes
     'audio'       : {}, // no audio
     'tracking_id' : ""  // Google Analytics tracking ID eg. UA-NNNNNN-N

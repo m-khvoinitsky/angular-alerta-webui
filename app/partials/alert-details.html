@@ -13,6 +13,7 @@
           ng-click="unwatchAlert(alert.id, user)"
           ng-show="alert.tags.indexOf('watch:'+user) > -1"
           ng-disabled="!isAuthenticated();"><i class="glyphicon glyphicon-eye-close"></i> Unwatch</button>
+  <input type="text" class="form-control input ack-text" placeholder="Ack message" ng-model="ack_text" ng-show="ask_ack_text" ng-disabled="alert.status == 'ack'">
   <button type="button" class="btn btn-primary"
           ng-click="ackAlert(alert.id)"
           ng-disabled="alert.status == 'ack'"><i class="glyphicon glyphicon-ok-circle"></i> Ack</button>

@@ -339,9 +339,11 @@ alertaControllers.controller('AlertListController', ['$scope', '$route', '$locat
       $route.reload();
     };
 
+    $scope.ack_text = '';
+    $scope.ask_ack_text = config.ask_ack_text ? config.ask_ack_text : false;
     $scope.bulkAckAlert = function(ids) {
       angular.forEach(ids, function(id) {
-        Alert.status({id: id}, {status: 'ack', text: 'bulk status change via console' + byUser}, function(data) {
+        Alert.status({id: id}, {status: 'ack', text: ($scope.ask_ack_text ? $scope.ack_text : 'bulk status change via console') + byUser}, function(data) {
           // $route.reload();
         });
       });
@@ -413,8 +415,10 @@ alertaControllers.controller('AlertDetailController', ['$scope', '$route', '$rou
       });
     };
 
+    $scope.ack_text = '';
+    $scope.ask_ack_text = config.ask_ack_text ? config.ask_ack_text : false;
     $scope.ackAlert = function(id) {
-      Alert.status({id: id}, {status: 'ack', text: 'status change via console' + byUser}, function(data) {
+      Alert.status({id: id}, {status: 'ack', text: ($scope.ask_ack_text ? $scope.ack_text : 'status change via console') + byUser}, function(data) {
         $route.reload();
       });
     };

@@ -101,3 +101,8 @@ table {
    width:40%;
    margin: 0 auto;
 }
+
+.ack-text {
+    width: 150px;
+    display: inline-block;
+}
