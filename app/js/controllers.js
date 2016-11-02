@@ -125,7 +125,6 @@ alertaControllers.controller('AlertListController', ['$scope', '$route', '$locat
 
     $scope.alerts = [];
     $scope.alertLimit = 20;
-    $scope.reverse = true;
     $scope.query = {};
 
     $scope.setService = function(s) {
@@ -242,6 +241,28 @@ alertaControllers.controller('AlertListController', ['$scope', '$route', '$locat
     $scope.severityCode = function(alert) {
       return severityCodes[alert.severity];
     };
+
+    var predicate_map = {
+      'reverseSeverityCode': $scope.reverseSeverityCode,
+      'severityCode': $scope.severityCode
+    };
+
+    $scope.default_sort = (
+        config.hasOwnProperty('default_sort') ?
+            (
+                Array.isArray(config.default_sort) ?
+                    config.default_sort :
+                    [config.default_sort]
+            ) :
+            ['reverseSeverityCode', 'lastReceiveTime']
+    ).map(function (el) {
+      if (predicate_map.hasOwnProperty(el))
+        return predicate_map[el];
+      else
+        return el;
+    });
+
+    $scope.reverse = config.hasOwnProperty('default_sort_reverse') ? config.default_sort_reverse : true;
 
     $scope.audio = config.audio;
     $scope.$watch('alerts', function(current, old) {

@@ -61,6 +61,8 @@ angular.module('config', [])
         background-color: skyblue;
         color: black;
       }`,
+    'default_sort': ['reverseSeverityCode', 'lastReceiveTime'],
+    'default_sort_reverse': true,
     'severity'    : {}, // use default severity codes
     'audio'       : {}, // no audio
     'tracking_id' : ""  // Google Analytics tracking ID eg. UA-NNNNNN-N
