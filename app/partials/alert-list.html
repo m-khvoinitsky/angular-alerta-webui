@@ -62,9 +62,18 @@
           <td class="{{col_classes.environment}}">{{ alert.environment }}</td>
           <td class="{{col_classes.service}}">{{ alert.service.join(', ') }}</td>
           <td class="{{col_classes.resource}}">{{ alert.resource }}</td>
-          <td class="{{col_classes.event}}">{{ alert.event }}</td>
-          <td class="{{col_classes.value}}">{{ alert.value }}</td>
-          <td class="{{col_classes.text}}"><span ng-bind-html="alert.text"></span></td>
+          <td class="{{col_classes.event}}">
+            <span ng-bind-html="alert.attributes.event_html" ng-hide="!alert.attributes.hasOwnProperty('event_html')"></span>
+            <span ng-hide="alert.attributes.hasOwnProperty('event_html')">{{ alert.event }}</span>
+          </td>
+          <td class="{{col_classes.value}}">
+            <span ng-bind-html="alert.attributes.value_html" ng-hide="!alert.attributes.hasOwnProperty('value_html')"></span>
+            <span ng-hide="alert.attributes.hasOwnProperty('value_html')">{{ alert.value }}</span>
+          </td>
+          <td class="{{col_classes.text}}">
+            <span ng-bind-html="alert.attributes.text_html" ng-hide="!alert.attributes.hasOwnProperty('text_html')"></span>
+            <span ng-hide="alert.attributes.hasOwnProperty('text_html')" ng-bind-html="alert.text | linky:'_blank'"></span>
+          </td>
         </tr>
       </table>
 
