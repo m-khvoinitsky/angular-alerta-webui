@@ -55,8 +55,8 @@
             ng-click="click($event,alert);">
           <td class="{{col_classes.severity}} no-wrap"><i class="glyphicon glyphicon-{{ alert.trendIndication | arrow }}"></i>&nbsp;<span class="label label-{{ alert.severity }}">{{ alert.severity | capitalize }}</span></td>
           <td class="{{col_classes.status}}"><span class="label label-{{ alert.status }}">{{ alert.status | capitalize }}</span></td>
-          <td class="{{col_classes.time_short}}">{{ alert.lastReceiveTime | date:shortTime }}</td>
-          <td class="{{col_classes.time_long}}">{{ alert.lastReceiveTime | date:mediumDate }}</td>
+          <td class="{{col_classes.time_short}}"><a href="#/alert/{{alert.id}}">{{ alert.lastReceiveTime | date:shortTime }}</a></td>
+          <td class="{{col_classes.time_long}}"><a href="#/alert/{{alert.id}}">{{ alert.lastReceiveTime | date:mediumDate }}</a></td>
           <td class="{{col_classes.dupl}}">{{ alert.duplicateCount }}</td>
           <td class="{{col_classes.customer}}" ng-show="isCustomerViews() && isAdmin();">{{ alert.customer }}</td>
           <td class="{{col_classes.environment}}">{{ alert.environment }}</td>
